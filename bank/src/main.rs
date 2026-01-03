@@ -1,0 +1,47 @@
+use std::panic::PanicHookInfo;
+
+#[derive(Debug)]
+struct Account {
+    id: u32,
+    holder: String,
+    balance: i64,
+}
+
+impl Account {
+    fn new(id: u32, holder: String) -> Self {
+        Account {
+            id,
+            holder,
+            balance: 0,
+        }
+    }
+}
+
+#[derive(Debug)]
+struct Bank {
+    accounts: Vec<Account>,
+}
+
+impl Bank {
+    fn new() -> Self {
+        Bank { accounts: vec![] }
+    }
+}
+
+fn print_account(account: &Account) {
+    println!("{:#?}", account);
+}
+
+fn change_account(account: &mut Account){
+    account.balance = 10;
+
+    println!("{}", account.holder)
+}
+
+fn main() {
+    let num = 5;
+    let other_num = num;
+
+    println!("First num: {} \nSecond num: {}", num, other_num)
+
+}
